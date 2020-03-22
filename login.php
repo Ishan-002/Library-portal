@@ -25,7 +25,7 @@ elseif ($pass=="baap") {
     echo('<script>location.href="admin.php"</script>');
 }
 else {
-    echo('<script>document.getElementById("galti").innerHTML="Try Again!!";</script>');
+    echo('<script>document.getElementById("galti").innerHTML="Try Again!!";</script>');  //this is not working
 }
 
 ?>
