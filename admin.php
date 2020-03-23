@@ -13,7 +13,7 @@
         </div>
         <div id="features">
             <button href="add.php">Add new books</button>
-            <button href="">Remove books</button>
+            <button href="remove.php">Remove books</button>
             <button href="">Modify existing entries</button>
             <button href="">Check for requests</button>
         </div>

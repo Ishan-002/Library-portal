@@ -12,8 +12,8 @@
                     ">Logout</button>
 </div>
 <div id="features">
-    <button href="">Check Out</button>
-    <button href="">Check In</button>
+    <button href="checkout.php">Check Out</button>
+    <button href="checkin.php">Check In</button>
     <button href="my_books.php">My books</button>
 </div>
 <?php

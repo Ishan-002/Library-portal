@@ -36,16 +36,28 @@
                            <td>".$i."</td>
                            <td>".$result['book name']."</td>
                            <td>".$result['availability']."</td>
-                           <td><input type='checkbox' value='' name=".$result["book name"].">
+                           <td><input type='checkbox' name=".$i." value=".$result['ID'].">
                        </tr>";
                        $i++;
                    }
-                   echo "</table><input type='submit' value='Delete the following books'></form>";
+                   echo "</table><input type='submit' value='Delete the following books' onclick='window.location.href=`admin.php`;'></form>";
+                    }
+                if(isset($_POST)) {
+                    foreach($_POST as $value)
+                    {
+                        $sql1=$conn->query("DELETE FROM `booklist` WHERE `booklist`.`ID` = $value ");
+                    }
+                    $sql2=$conn->query("ALTER TABLE `booklist` AUTO_INCREMENT = 10");
+                    var_dump($sql2);
+                    
                 }
 
-                
-
             ?>
+            <script>
+                function foo() {
+                    location.href="admin.php";
+                }
+            </script>
 
         </div>
     </body>
