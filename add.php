@@ -8,6 +8,7 @@
             <input type="text" name="newbook">
             <input type="submit" value="ADD">
         </form>
+        <button onclick="location.href='admin.php'">Return to main page</button>
         <?php
             $dbuser="ishu";
             $dbpass="Ishan_002";
@@ -25,7 +26,7 @@
                 $new=$_POST["newbook"];
                 $sql=$conn->query("INSERT INTO `booklist` (`ID`, `book name`, `availability`) VALUES (NULL, '$new', 'Available')");
                 if($sql) {
-                    echo("done!!");
+                    echo("The book has been added!");
                 }
                 }
             }
