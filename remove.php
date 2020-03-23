@@ -40,24 +40,30 @@
                        </tr>";
                        $i++;
                    }
-                   echo "</table><input type='submit' value='Delete the following books' onclick='window.location.href=`admin.php`;'></form>";
+                   echo "</table><input type='submit' value='Delete the following books'></form>";
                     }
-                if(isset($_POST)) {
+                // if(isset($_POST))     Iss line ka koi matlab nahi hai...$_POST hamesha hi ek array hai toh 
+                //                        NULL obviously nahi hoga
                     foreach($_POST as $value)
                     {
                         $sql1=$conn->query("DELETE FROM `booklist` WHERE `booklist`.`ID` = $value ");
                     }
-                    $sql2=$conn->query("ALTER TABLE `booklist` AUTO_INCREMENT = 10");
-                    var_dump($sql2);
-                    
-                }
+                    // $sql2=$conn->query("ALTER TABLE `booklist` AUTO_INCREMENT = 10");
+                    if($sql1){
+                            echo " 
+                                <script>
+                                alert('Books deleted successfully');
+                                location.href='admin.php';
+                                </script> ";
+                    }
+
 
             ?>
-            <script>
+            <!-- <script>
                 function foo() {
                     location.href="admin.php";
                 }
-            </script>
+            </script> -->
 
         </div>
     </body>

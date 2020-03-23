@@ -15,7 +15,7 @@
         $sql=$conn->query("SELECT * FROM booklist WHERE availability='Unavailable' ");
 
         echo "
-                <form action='' method='post'>
+                <form action='requests.php' method='post'>
                 <table>
                     <tr>
                         <th>ID</th>
@@ -31,7 +31,7 @@
                     <tr>
                         <td>".$i."</td>
                         <td>".$result["book name"]."</td>
-                        <td><input type='checkbox' value='' name=''></td>
+                        <td><input type='checkbox' value=".$result["book name"]." name='in'></td>   
                     </tr>
                  ";
 
@@ -39,15 +39,17 @@
         }
         echo "
                 </table>
-                <input type='submit' value='Request check-in' onclick='poo()'>
-                </form>
-             ";
+                <input type='submit' value='Request check-in'>";
+                echo"   </form>";
+             
+            //  redirect('user.php');
     ?>
-    <script>
+    <!-- <script>
         function poo() {
             alert("Your request has been sent for approval");
-            window.location.href="user.php";
+            location.href="user.php";      // For type=submit button the onclick attribute works but the
+                                          //  location.href property doesn't work for type=submit button :(
         }
-    </script>
+    </script> -->
     </body>
 </html>
