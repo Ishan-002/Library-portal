@@ -12,10 +12,10 @@
             ">Logout</button>        
         </div>
         <div id="features">
-            <button href="add.php">Add new books</button>
-            <button href="remove.php">Remove books</button>
-            <button href="modify.php">Modify existing entries</button>
-            <button href="requests.php">Check for requests</button>
+            <button onclick='location.href="add.php";'>Add new books</button>     <!-- inside onclick semicolon -->
+            <button onclick='location.href="remove.php"'>Remove books</button>    <!-- is not compulsory, we --> 
+            <button onclick='location.href="modify.php"'>Modify existing entries</button> <!-- can directly write JS -->
+            <button onclick='location.href="requests.php"'>Check for requests</button>    
         </div>
         <div>
             The complete book list:
