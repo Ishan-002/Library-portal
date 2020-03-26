@@ -52,31 +52,30 @@
                                     <td>".$result['book name']."</td>
                                     <td>".$result['availability']."</td>
                                 </tr>";
-                        $i++;
-                        }
-                    echo "</table>";
+                            $i++;
+                        }        
+                echo "</table>";
                 
 
 
 
-                //php for modifying the table entries submitted at modify.php
+                // //php for modifying the table entries submitted at modify.php
                 
-                if( isset($_POST["1"])) {
+                if( isset($_POST["bname1"])) {
                     $i=1;
                     foreach( $_POST as $index => $value) {
-
-                        if( $index == "id$i") {
-                            $idchange=$conn->query("UPDATE booklist SET ID=$value WHERE $index='$i'");
+                        // $idchange=$conn->query("UPDATE booklist SET ID=int($value)");
+                        if($index == "bname$i") {
+                            $k=$_POST["id$i"];
+                            $idchange=$conn->query("UPDATE booklist SET `book name`='$value' WHERE ID=int($a) ");
                         }
-                        if( $index == "bname$i") {
-                            $idchange=$conn->query("UPDATE booklist SET `book name`='$value' WHERE $index='$i'");
-                        }
-                        if( $index == "avail$i") {
-                            $idchange=$conn->query("UPDATE booklist SET availability='$value' WHERE $index='$i'");
+                        if($index == "avail$i") {
+                            $k=$_POST["id$i"];
+                            $idchange=$conn->query("UPDATE booklist SET `availability`='$value' WHERE ID=int($a) ");
                         }
                         $i++;
                     }
-                }
+                 }
                     
                         
                     

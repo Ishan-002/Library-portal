@@ -31,7 +31,7 @@
                     <tr>
                         <td>".$i."</td>
                         <td>".$result["book name"]."</td>
-                        <td><input type='checkbox' value=".$result["book name"]." name='in'></td>   
+                        <td><input type='checkbox' value=".$result["ID"]." name='in$i'></td>   
                     </tr>
                  ";
 

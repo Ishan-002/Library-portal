@@ -33,12 +33,15 @@
                         ";
                     $i=1;
                         while($result=$sql->fetch_assoc()) {
+                            $a=$result["ID"];
+                            $b=$result["book name"];
+                            $c=$result["availability"];
                         echo "
                                 <tr>
                                     <td>$i</td>
-                                    <td><input type='text' placeholder=".$result["ID"]." value=".$result["ID"]." name='id$i'></td>
-                                    <td><input type='text' placeholder=".$result["book name"]." value=".$result["book name"]." name='bname$i'></td>
-                                    <td><select name='avail$i'><option selected disabled>".$result["availability"]."</option><option>Available</option><option>Unavailable</option></select></td>
+                                    <td><input type='text' value='$a' name='id$i' readonly></td>
+                                    <td><input type='text' placeholder='$b' value='$b' name='bname$i'></td>
+                                    <td><select name='avail$i'><option selected disabled>$c</option><option>Available</option><option>Unavailable</option></select></td>
                                 </tr>";
                                 $i++;
                         }
