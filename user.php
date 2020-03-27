@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link href="style.css" rel="stylesheet">
         <title>User Page</title>
     </head>
     <body>
@@ -9,13 +10,13 @@
                             if(confirm('Are you sure you want to logout?')) {
                                 window.location.href='login.php';
                             }
-                            ">Logout</button>
+                            " class="logout">Logout</button>
         </div>
-        <div id="features">
-            <button href="checkout.php">Check Out</button>
-            <button href="checkin.php">Check In</button>
-            <button href="my_books.php">My books</button>
-        </div>
+            <button onclick='location.href="checkout.php"'>Check Out</button>
+            <button onclick='location.href="checkin.php"'>Check In</button>
+            <button onclick='location.href="my_books.php"'>My books</button>
+        <div class="full-table">
+            The full list of books is:
         <?php
 
             require "connection.php";
@@ -34,7 +35,7 @@
             while($result=$sql->fetch_assoc()) {
                 echo "
                         <tr>
-                            <td>.$i.</td>
+                            <td>$i</td>
                             <td>".$result['ID']."</td>
                             <td>".$result['book name']."</td>
                             <td>".$result['availability']."</td>
@@ -42,6 +43,22 @@
                 $i++;
             }
             echo "</table>";
+
+
+            // for check in and check out
+
+            foreach($_POST as $index => $value) {
+                if( strpos($index,"in") !== false) {
+                    
+                    $req=$conn->query("INSERT INTO inrequests VALUES (NULL,int($value))");
+                }
+                if( strpos($index,"out") !== false) {
+                    
+                    $req=$conn->query("INSERT INTO outrequests VALUES (NULL,int($value))");
+                }
+                
+            }
         ?>
+        </div>
     </body>
 </html>

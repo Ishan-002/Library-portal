@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link href="style.css" rel="stylesheet">
         <title>Remove books</title>
     </head>
     <body>
@@ -14,6 +15,7 @@
                     <form method='POST' action='remove.php'>
                     <table>
                         <tr>
+                            <th>S.No</th>
                             <th>ID</th>
                             <th>Book Name</th>
                             <th>Availability</th>
@@ -25,6 +27,7 @@
                     echo "
                         <tr>
                             <td>".$i."</td>
+                            <td>".$result['ID']."</td>
                             <td>".$result['book name']."</td>
                             <td>".$result['availability']."</td>
                             <td><input type='checkbox' name=".$i." value=".$result['ID'].">
@@ -32,13 +35,10 @@
                     $i++;
                 }
                 echo "</table><input type='submit' value='Delete the following books'></form>";
-                // if(isset($_POST))     Iss line ka koi matlab nahi hai...$_POST hamesha hi ek array hai toh 
-                //                        NULL obviously nahi hoga
                 foreach($_POST as $value)
                 {
                     $sql1=$conn->query("DELETE FROM `booklist` WHERE `booklist`.`ID` = $value ");
                 }
-                // $sql2=$conn->query("ALTER TABLE `booklist` AUTO_INCREMENT = 10");
                 if($sql1){
                     echo " 
                         <script>
@@ -47,11 +47,6 @@
                         </script> ";
                 }
             ?>
-            <!-- <script>
-                function foo() {
-                    location.href="admin.php";
-                }
-            </script> -->
 
         </div>
     </body>

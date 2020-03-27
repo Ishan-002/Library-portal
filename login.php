@@ -1,11 +1,11 @@
 <html>
     <head>
         <title> Login Portal </title>
-        <link href="login-styling.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet">
     </head>
     <body>
         <form action="login.php" method="post">
-            <legend>Login Portal</legend>
+            <legend id="login">Login Portal</legend>
             Username: 
             <input type="text" name="username"><br>
             Password: 

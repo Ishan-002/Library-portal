@@ -1,23 +1,22 @@
 <html>
     <head>
+        <link href="style.css" rel="stylesheet">
         <title>Admin Page</title>
     </head>
     <body>
-        <div>
+        <div id="welcome">
             Welcome Admin!!
             <button onclick="
             if(confirm('Are you sure you want to logout?')) {
                 location.href='login.php';
             }
-            ">Logout</button>        
+            " class="logout">Logout</button>        
         </div>
-        <div id="features">
-            <button onclick='location.href="add.php";'>Add new books</button>     <!-- inside onclick semicolon -->
-            <button onclick='location.href="remove.php"'>Remove books</button>    <!-- is not compulsory, we --> 
-            <button onclick='location.href="modify.php"'>Modify existing entries</button> <!-- can directly write JS -->
+            <button onclick='location.href="add.php";'>Add new books</button> 
+            <button onclick='location.href="remove.php"'>Remove books</button>     
+            <!-- <button onclick='location.href="modify.php"'>Modify existing entries</button>  -->
             <button onclick='location.href="requests.php"'>Check for requests</button>    
-        </div>
-        <div>
+        <div class='full-table'>
             The complete book list:
            <?php
                 require "connection.php";

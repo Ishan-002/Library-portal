@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link href="style.css" rel="stylesheet">
         <title>Add New books</title>
     </head>
     <body>
@@ -19,7 +20,12 @@
                 $sql=$conn->query("INSERT INTO `booklist` (`ID`, `book name`, `availability`) VALUES (NULL, '$new', 'Available')");
                 
                 if($sql) {
-                    echo("The book has been added!");
+                    echo "
+                            <script>
+                            alert('The book has been added');
+                            location.href='admin.php';
+                            </script>
+                         ";
                 }
             }
         ?>

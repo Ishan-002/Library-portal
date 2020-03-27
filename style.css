@@ -1,0 +1,48 @@
+body {
+    margin-left: 0px;
+    background-color: rgb(16, 219, 192);
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    
+    font-size: inherit;
+
+}
+td,th {
+    text-align: center;
+    border: 2px solid black;
+    padding: 5px;
+}
+tr:nth-child(odd){
+    background-color: lightgrey;
+}
+button, input[type="submit"]{
+   background-color: rgb(241, 135, 35);
+   border: 0px; 
+   padding: 5px;
+   margin: 10px;
+   border-radius: 10%;
+}
+.full-table{
+    position: absolute;
+    bottom: 0px;
+    font-size: 20px;
+    margin-left: 0px;
+    width: 100%;   
+}
+.logout{
+    float: right;
+}
+#welcome{
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+input{
+    background-color: inherit;
+    margin: 5px;
+}
+#login{
+    font-size: 50px;
+    margin-bottom: 50px;
+}

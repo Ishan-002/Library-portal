@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link href="style.css" rel="stylesheet">
         <title>Check Out Books</title>
     </head>
     <body>
@@ -11,7 +12,7 @@
 
             $sql=$conn->query("SELECT * FROM booklist WHERE availability='Available'");
             echo "
-                    <form action='' method='post'>
+                    <form action='user.php' method='post'>
                     <table>
                         <tr>
                             <th>ID</th>
@@ -29,7 +30,7 @@
                             <td>".$i."</td>
                             <td>".$result["book name"]."</td>
                             <td>".$result["availability"]."</td>
-                            <td><input type='checkbox' name='' value=''></td>
+                            <td><input type='checkbox' name='' value=".$result['ID']."></td>
                         </tr>
                         ";
 
@@ -37,16 +38,9 @@
             }
             echo " 
                     </table>
-                    <input type='submit' value='Request check-out' onclick='poo()'>
+                    <input type='submit' value='Request check-out'>
                     </form>
                     ";
         ?>
-        <!-- <script>
-            function poo() {
-                alert("Your request has been sent for approval");
-                window.location.href="user.php"; //this is doubtful ki page agar yahan chala gya toh form data
-                                                //sahi jagah jaega ki nahi
-            } -->
-        <!-- </script>  -->
     </body>
 </html>

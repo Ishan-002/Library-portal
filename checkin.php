@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link href="style.css" rel="stylesheet">
         <title>Check-in books</title>
     </head>
     <body>
@@ -11,7 +12,7 @@
             $sql=$conn->query("SELECT * FROM booklist WHERE availability='Unavailable' ");
 
             echo "
-                    <form action='requests.php' method='post'>
+                    <form action='user.php' method='post'>
                     <table>
                         <tr>
                             <th>ID</th>
@@ -37,15 +38,6 @@
                     </table>
                     <input type='submit' value='Request check-in'>";
                     echo"   </form>";
-                
-                //  redirect('user.php');
         ?>
-        <!-- <script>
-            function poo() {
-                alert("Your request has been sent for approval");
-                location.href="user.php";      // For type=submit button the onclick attribute works but the
-                                            //  location.href property doesn't work for type=submit button :(
-            }
-        </script> -->
     </body>
 </html>

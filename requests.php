@@ -1,5 +1,7 @@
 <html>
     <head>
+        <link href="style.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
         <title>Pending Requests</title>
     </head>
     <body>
@@ -9,44 +11,68 @@
             require "connection.php" ;
                     
             $i=1;
-            foreach($_POST  as  $index => $value) {
-                    
-                if( strpos($index,"in") !== false) {
-                        
-                    echo "<div> <h1>Check In</h1>
-                        The user has requested to check-in the book with the ID: $value <br>
-                        <form action='requests.php' method='POST'>
-                        <button onclick='done()'>Accept</button>
-                        <button onclick='close()'>Decline</button>
-                        </form>
+            $sql=$conn->query("SELECT ID FROM inrequests ");
+            echo "<h2>Check-in</h2>";
+            while($result=$sql->fetch_assoc()) {
+                echo "
+                        <div>The user has requested to checkin the book with ID: $result <br>
+                        <button onclick='acceptin($result)'> Accept</button>
+                        <button onclick='declinein($result)'> Decline</button>
                         </div>
-                        <script>
-                        function done() {
-                             ";$sql=$conn->query('UPDATE booklist SET `availability`=`Available` WHERE ID=`$value` ');echo "
-                            close();
-                        }
-                        function close() {
-                        }
-                        function donec() {
-                            ";$sql=$conn->query('UPDATE booklist SET `availability`=`Unavailable` WHERE ID=`$value` ');echo "
-                            closec();
-                        }
-                        function closec() {
-                        }
-                        </script>                    
-                        ";
-            
-                }
-                if( strpos($index,"out") !== false) {
-                        
-                    echo "<div> The user has requested to check-out the book with the ID: $value <br>
-                        <button onclick='donec()'>Accept</button>
-                        <button onclick='closec()'>Decline</button>
-                        </div>
-                    
-                       ";
-                }
+                ";
             }
+
+            $sqlout=$conn->query("SELECT ID FROM outrequests ");
+            echo "<h2>Check-out</h2>";
+            while($result=$sql->fetch_assoc()) {
+                echo "
+                        <div>The user has requested to checkout the book with ID: $result <br>
+                        <button onclick='acceptout($result)'> Accept</button>
+                        <button onclick='declinout($result)'> Decline</button>
+                        </div>
+                ";
+            }
+
+            echo "
+                    <script>
+                    function acceptin(v) {
+                        $.ajax(
+                            url: 'requestprocessing.php',
+                            type: 'POST,
+                            data: { 'avial': 'Available' , 'idin': v },
+                            success: close()
+                        );
+                    }
+
+                    function acceptout(v) {
+                        $.ajax(
+                            url: 'requestprocessing.php',
+                            type: 'POST,
+                            data: { 'avial': 'Unavailable' , 'idout': v },
+                            success: close()
+                        );
+                    }
+                    function declinein(v) {
+                        $.ajax(
+                            url: 'requestprocessing.php',
+                            type: 'POST,
+                            data: { 'idinrejected': v },
+                            success: close()
+                        );
+                    }function declineout(v) {
+                        $.ajax(
+                            url: 'requestprocessing.php',
+                            type: 'POST,
+                            data: { 'idoutrejected': v },
+                            success: close()
+                        );
+                    }
+                    function close() {
+                        
+                    }
+
+                    </script>
+                ";            
         ?>
     </body>
 </html>

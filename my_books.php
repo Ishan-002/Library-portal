@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link href="style.css" rel="stylesheet">
         <title>My books</title>
     </head>
     <body>
@@ -21,7 +22,7 @@
             while($result=$sql->fetch_assoc()) {
                 echo "
                     <tr>
-                        <td>".$i."</td>
+                        <td>$i</td>
                         <td>".$result["ID"]."</td>
                         <td>".$result['book name']."</td>
                         <td>".$result['availability']."</td>
@@ -31,7 +32,7 @@
             echo "</table>";
         ?>
 
-        <button href="user.php">Return to main page</button>
+        <button onclick='location.href="user.php"'>Return to main page</button>
 
     </body>
 </html>
