@@ -8,7 +8,8 @@ To run the system clone the repository and edit connection.php to your mySQL cre
 Create a database
 
 
-```CREATE DATABASE IF NOT EXISTS books;
+```
+CREATE DATABASE IF NOT EXISTS books;
 
 
 CREATE TABLE `books`.`inrequests` ( `no` INT(50) NOT NULL AUTO_INCREMENT , `ID` INT(255
