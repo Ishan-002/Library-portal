@@ -18,7 +18,7 @@ CREATE TABLE `books`.`inrequests` ( `no` INT(50) NOT NULL AUTO_INCREMENT , `ID` 
 CREATE TABLE `books`.`outrequests` ( `no` INT(10) NOT NULL AUTO_INCREMENT , `ID` INT(255) NOT NULL , PRIMARY KEY (`no`)) ENGINE = InnoDB;
 
 
-CREATE TABLE `books`.`booklist` ( `ID` INT(10) NOT NULL AUTO_INCREMENT , `book name` INT(50) NOT NULL , `availability` INT(20) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;
+CREATE TABLE `books`.`booklist` ( `ID` INT(10) NOT NULL AUTO_INCREMENT , `book name` VARCHAR(50) NOT NULL , `availability` VARCHAR(20) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;
 
 INSERT INTO `booklist` (`ID`, `book name`, `availability`) VALUES ('675242', 'harry potter', 'Available');
 INSERT INTO `booklist` (`ID`, `book name`, `availability`) VALUES ('432422', 'RK Jain', 'Available');
