@@ -32,12 +32,12 @@ Now, open login.php !!
 
 Note:
 
-Admin Credentials
-username:   admin
+Admin Credentials                   
+username:   admin                         
 password:   baap
 
-User Credentials
-username:   user
+User Credentials                    
+username:   user                            
 password:   baccha
 
 
