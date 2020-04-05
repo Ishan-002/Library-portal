@@ -10,7 +10,7 @@ Run the following commands at your mySQL server to make the necessary database
 
 ```
 CREATE DATABASE IF NOT EXISTS books;
-
+SELECT DATABASE books;
 
 CREATE TABLE `books`.`inrequests` ( `no` INT(50) NOT NULL AUTO_INCREMENT , `ID` INT(255
 ) NOT NULL , PRIMARY KEY (`no`)) ENGINE = InnoDB;
