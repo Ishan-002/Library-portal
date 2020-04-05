@@ -5,7 +5,7 @@ A book management system using PHP and MySQL.
 
 To run the system clone the repository and edit connection.php to your mySQL credentials.
 
-Create a database
+Run the following commands at your mySQL server to make the necessary database
 
 
 ```
@@ -28,6 +28,16 @@ INSERT INTO `booklist` (`ID`, `book name`, `availability`) VALUES ('190882', 'HC
 INSERT INTO `booklist` (`ID`, `book name`, `availability`) VALUES ('297522', 'Dictionary', 'Unavailable');
 INSERT INTO `booklist` (`ID`, `book name`, `availability`) VALUES ('507432', 'fofhevoe', 'Unavailable');
 ```
+Now, open login.php !!
 
+Note:
+
+Admin Credentials
+username:   admin
+password:   baap
+
+User Credentials
+username:   user
+password:   baccha
 
 
